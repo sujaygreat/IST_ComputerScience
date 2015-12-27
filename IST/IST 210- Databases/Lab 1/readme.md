@@ -6,13 +6,21 @@ The Upper Coastal University Registration System is a database system used by a 
 
 ## Lab Assignment
 
-  Create a data dictionary for Upper Coastal University Registration System
-  Create a relational diagram for Upper Costal University Registration System
-  Issue SQL select commands (see ìGetting Startedî lab) and answer the following questions: (answer the question but also provide SQL and result)
-  How many courses are available?
-  What days of the week do c_sec_id 2 meet?
-  How many enrollments have not been assigned a grade?
-  What is the faculty rank of Jerry Williams?
-  What is the capacity for room 211 in BUS building?
-  How many students live in Maine (state code ME)?
-  What term is currently OPEN?
+1.   Create a data dictionary for Upper Coastal University Registration System
+
+2.   Create a relational diagram for Upper Costal University Registration System
+3.   Issue SQL select commands (see ‚ÄúGetting Started‚Äù lab) and answer the following questions: (answer the question but also provide SQL and result)
+
+  a.  How many courses are available?
+
+  b.  What days of the week do c_sec_id 2 meet?
+  
+  c.  How many enrollments have not been assigned a grade?
+  
+  d.  What is the faculty rank of Jerry Williams?
+  
+  e.  What is the capacity for room 211 in BUS building?
+  
+  f.  How many students live in Maine (state code ME)?
+  
+  g.  What term is currently OPEN?
