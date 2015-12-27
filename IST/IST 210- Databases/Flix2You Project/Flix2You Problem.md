@@ -1,11 +1,13 @@
-Problem Instructions
+#Problem Instructions
+
+
 Flix2You is looking for a company to help them design a solution that meets the requirements they have set forth. As a team and aided by course materials, course content, and quality external resources, you need to create a proposal to meet the requirements of Flix2You. Keep in mind; your organization is not
 the only one being solicited for this contract.
 
 Good luck to each of the teams. May your solution be the winning one!
 
-Problem Introduction
-Flix2You wants to expand its current operations. The goal of Flix2You is to make better use of their current data which would then allow them to apply analytics to better understand how they formulate a new strategy for their business. "We have collected data in our system for almost 9 years. So we know we are data ërichí but as they also sayÖ.íinformation poorí, says Steve LaSalle, a corporate vice-president. Flix2You wants to be the most comprehensive video rental portal in the country.
+##Problem Introduction
+Flix2You wants to expand its current operations. The goal of Flix2You is to make better use of their current data which would then allow them to apply analytics to better understand how they formulate a new strategy for their business. "We have collected data in our system for almost 9 years. So we know we are data ‚Äòrich‚Äô but as they also say‚Ä¶.‚Äôinformation poor‚Äô, says Steve LaSalle, a corporate vice-president. Flix2You wants to be the most comprehensive video rental portal in the country.
 
 The purpose of this problem is for your team to create a solution that meets the needs of Flix2You, a movie rental company. Flix2You already has a website but is wants to better understand who their customers are and how they can increase revenue. Flix2You is searching for an organization that will help them create a solution to manage the data and database that drives the Flix2You site and their corporation.
 
@@ -13,7 +15,7 @@ The goal of this problem is to assist Flix2You in their initiative to design a s
 
 It is the responsibility of your team to demonstrate the nature of the solution by producing a problem document which is actually a plan to help Flix2You and solve their problem. Requirements for the document are detailed throughout this document.
 
-One of your teamís responsibilities is to ensure that each of your team members participate equally throughout the design and development of the products. It is highly recommended that, prior to starting the project, each member of your team chooses a role from which you will play throughout the project. Choose the participants that you feel will most strongly make your case to the Board of Directors.
+One of your team‚Äôs responsibilities is to ensure that each of your team members participate equally throughout the design and development of the products. It is highly recommended that, prior to starting the project, each member of your team chooses a role from which you will play throughout the project. Choose the participants that you feel will most strongly make your case to the Board of Directors.
 
 Project Manager
 Database Administrator
@@ -49,7 +51,7 @@ NOTE: You do not need to submit a functioning application.
 
 Upon completion of the proposal, your team should submit one copy of the document to your instructor via this assignment page.
 
-Problem Document
+##Problem Document
 
 As part of the project, your team is required to create a project document. This document will be used to demonstrate your understanding and the scope of the project and your suggested solution. Use the following guidelines when creating your document:
 
@@ -57,7 +59,7 @@ The document will be no longer 30 single spaced pages
 Use Arial 12pt Font, table of contents, and page numbering
 APA format for references & citations (this include in-text citations)
 must include, at a minimum, the following sections noted below
-I. Document Cover (1 Page)
+##I. Document Cover (1 Page)
 
 As part of the submission procedures for this proposal, you are required to prepare a document cover. The cover needs to include the following:
 
@@ -67,27 +69,27 @@ Instructor Name
 Your Company/Team Name, Address, and Telephone Number
 Date of Submission
 Any other Relevant Information
-II. Table of Contents (1 page)
+##II. Table of Contents (1 page)
 
 Create a document table of contents that outlines the major document headings and subheadings along with their page numbers.
 
-III. Executive Summary (1 page)
+##III. Executive Summary (1 page)
 
 Create a one-page summary, of your plan, which is brief, to the point, and will hopefully evoke sufficient interest in the recipient to warrant taking a closer look. It is used to summarize the major parts of the document and entice the reader to continue reading the rest of the document.
 
-IV. Project Overview (2-3 pages)
+##IV. Project Overview (2-3 pages)
 
 Scope of Work
 
-Clearly state the problem to be addressed. Discuss your understanding of Flix2Youís needs and requirements for the new system.
+Clearly state the problem to be addressed. Discuss your understanding of Flix2You‚Äôs needs and requirements for the new system.
 
-V. Project Management (2-4 pages)
+##V. Project Management (2-4 pages)
 
 Project Plan
 
 Provide a proposed plan for completing the project that includes, at a minimum, the following information. See provided Microsoft Project.mppView in a new window file provided as a starting point. Embed the Gantt Chart in your Word Document such that it is easy to read and does not take up many pages.
 
-To experience a great tutorial on MS Project visit Penn Stateís Microsoft IT Academy (Links to an external site.).
+To experience a great tutorial on MS Project visit Penn State‚Äôs Microsoft IT Academy (Links to an external site.).
 
 You will need to fill in additional information:
 
@@ -114,15 +116,15 @@ After identifying the users, identify the appropriate level of access that each 
 
 VII. Organization of Data (3-4 pages including diagrams)
 
-Existing database analysis ñ Identifying relationships
+Existing database analysis ‚Äì Identifying relationships
 
-The database that drives the Flix2You website is a generic e-commerce database that was purchased as ìoff-the-shelfî software and was then modified by a prior group of database consultants. The database currently works with the Flix2You website, but it is difficult to query and understand the data in the current database. When queries are run, it slows down the online system and often disrupts customer transactions.
+The database that drives the Flix2You website is a generic e-commerce database that was purchased as ‚Äúoff-the-shelf‚Äù software and was then modified by a prior group of database consultants. The database currently works with the Flix2You website, but it is difficult to query and understand the data in the current database. When queries are run, it slows down the online system and often disrupts customer transactions.
 
 Given the existing database schema, analyze the entities, relationships between these entities, and cardinalities of these relationships. Determine what the structure will be that will hold your extracted dataset. Then, construct the corresponding ER Diagram for the new database design.
 
 NOTE: The existing database schema can be found in the problem resources section of this document.
 
-Existing database analysis ñ Normalization/Denormalization Approaches
+Existing database analysis ‚Äì Normalization/Denormalization Approaches
 
 Create the tables in the new database. Several possible approaches to this solution exist
 
@@ -130,7 +132,7 @@ Normalized Approach: If your team offers this type of solution be sure your desi
 
 Denormalized Approach or Alternative Approaches: Any other possible solution will require at a minimum of 2 tables developed, and included the SQL necessary to create these tables. In addition to creating the tables, use SQL to populate these tables with sample data. Do Nothing: Although this sounds extreme, is there a way to keep things as they are and improve the situation. (least recommended).
 
-VIII. Database Administration (2-4 pages)
+##VIII. Database Administration (2-4 pages)
 
 Identify the roles and responsibilities of a DBA and any other administrative personnel who will be using the system. Include hardware/software knowledge, infrastructure knowledge, and clustering knowledge a DBA would need to have to succeed in administrating this system.
 
@@ -142,19 +144,19 @@ Data Access and Security
 
 Determine what types of security measures need to be in place so the system cannot be breached. Multiple levels of security will be necessary:
 
-Database security ñ describe how you will secure the database so only people with the correct login/password will be able to access the data.
-Privacy statement ñ explaining how a customerís data will be used.
-Anticipate any legal implications or disclaimers that need to appear on the site due to employees having access to customersí personal information. Should employees have to sign disclaimers?
+Database security ‚Äì describe how you will secure the database so only people with the correct login/password will be able to access the data.
+Privacy statement ‚Äì explaining how a customer‚Äôs data will be used.
+Anticipate any legal implications or disclaimers that need to appear on the site due to employees having access to customers‚Äô personal information. Should employees have to sign disclaimers?
 Dataload
-If creating a ìnew read onlyî database that will pull data from an operational database, be sure include a discussion (eg. Plan) as to how you intend on updating the data that will be contained in your proposed database design. This would include frequency of the update, timeframe as to when the update would be conducted etc.
+If creating a ‚Äúnew read only‚Äù database that will pull data from an operational database, be sure include a discussion (eg. Plan) as to how you intend on updating the data that will be contained in your proposed database design. This would include frequency of the update, timeframe as to when the update would be conducted etc.
 
-If creating a new design that is replacing the current operational database, be sure to include a discussion as to your companyís plan to migrate the existing database data to the new system and how it may or may not impact daily operations.
+If creating a new design that is replacing the current operational database, be sure to include a discussion as to your company‚Äôs plan to migrate the existing database data to the new system and how it may or may not impact daily operations.
 
-IX. Database Dashboard and Analytics (2-4)
+##IX. Database Dashboard and Analytics (2-4)
 
 Database Dashboard
 
-The executives at Flix2You would like to see a ëdashboardí created that management can log into securely and view weekly reports that contain specific information regarding the sales and demographics of the users of Flix2You. The dashboard should be informative, easy to understand, easy to use, and provide the ability to export data to MS Excel and print to a .pdf. The dashboard should provide the ability to drill down thru various levels of detail. Additionally, the dashboard should be able to run on a tablet device (eg. iPad, Android, etc.).
+The executives at Flix2You would like to see a ‚Äòdashboard‚Äô created that management can log into securely and view weekly reports that contain specific information regarding the sales and demographics of the users of Flix2You. The dashboard should be informative, easy to understand, easy to use, and provide the ability to export data to MS Excel and print to a .pdf. The dashboard should provide the ability to drill down thru various levels of detail. Additionally, the dashboard should be able to run on a tablet device (eg. iPad, Android, etc.).
 
 The dashboard should contain a graphical representation of the data. You will need to do some research on various dashboards. The purpose of this section is to have you demonstrate your ability to provide the SQL Queries needed to generate a web based report that details various corporate data owned by Flix2You. An example dashboard can contain the following information but is not limited to:
 
@@ -170,15 +172,15 @@ Number of downloads, sales, etc.
 Number of new members
 The query should group the data accordingly for ease of reading and the user information associated with each product should be sorted in ascending order by Last Name.
 
-X. Legal Issues (1ñ2 pages)
+##X. Legal Issues (1‚Äì2 pages)
 
 Determine any disclaimers or privacy statements that need to be stated within this document and also located somewhere within the website for the customers to view. Some items that should be included are:
 
  
 
-Privacy Statement ñ how do you plan on keeping the customerís data private? How will the customerís data be used? What security is in place to maintain the data remains private?
-Terms and Conditions for Use ñ create a ticketing purchasing policy, that will include terms for refunding services and identify the ramifications of violating the terms and conditions.
-XI. List of References (Page count is whatever is appropriate)
+Privacy Statement ‚Äì how do you plan on keeping the customer‚Äôs data private? How will the customer‚Äôs data be used? What security is in place to maintain the data remains private?
+Terms and Conditions for Use ‚Äì create a ticketing purchasing policy, that will include terms for refunding services and identify the ramifications of violating the terms and conditions.
+##XI. List of References (Page count is whatever is appropriate)
 
 Your team must compile a list of references that were used to help create your proposal document. This list of references should follow APA format. This section should not be considered part of the overall page count for the document.
 
@@ -200,7 +202,7 @@ History of Flix2You
 
 Flix2You is a company that started in May 2002 with two rental locations, one located in Scranton, PA and the other one in Pittsburgh. These then grew to 520 locations on the East Coast of the United States. As of December 2013, we have closed our brick and mortar locations and gone completely online with almost 20 Million users. The savings were quite satisfying to shareholders but we have now realized we are no longer growing as aggressively. We anticipate offering more downloads via our website. Future downloads may include video games and apps.
 
-Flix2You has rented millions of videos since it inceptions. We receive approximately 20,000 unique hits daily and expect for that number to increase significantly as we increase available downloadable movies and other offerings. One of our major concerns is that we wonít understand who is coming to our site and what movies we will offer, how we should offer them, or what types of downloads would be good. Since this is competitive market, we cannot afford to lose any customers so we are willing to spend a significant amount of money to ensure the infrastructure is scalable, reliable, and secure. But more importantly, that the new system gives us the information we need.
+Flix2You has rented millions of videos since it inceptions. We receive approximately 20,000 unique hits daily and expect for that number to increase significantly as we increase available downloadable movies and other offerings. One of our major concerns is that we won‚Äôt understand who is coming to our site and what movies we will offer, how we should offer them, or what types of downloads would be good. Since this is competitive market, we cannot afford to lose any customers so we are willing to spend a significant amount of money to ensure the infrastructure is scalable, reliable, and secure. But more importantly, that the new system gives us the information we need.
 
 
 
@@ -212,7 +214,7 @@ DEMO PICTURE
 
 Current Technical Infrastructure
 
-Flix2Youís current corporate database is utilizing the 64-bit edition SQL Server 2008 as the backend DBMS and IIS and ASP.net/PHP as the technology solution used to build the data driven web pages. Recently, Flix2You has had some concerns that the infrastructure currently in place is not robust enough to handle the future backend business demands of the site. We are open to any ideas of moving to a more robust solution, if warranted. We have already invested a substantial amount of money into the current system and we want to now fully leverage it by creating this repository to better understand our data. We want to be data rich AND information rich!
+Flix2You‚Äôs current corporate database is utilizing the 64-bit edition SQL Server 2008 as the backend DBMS and IIS and ASP.net/PHP as the technology solution used to build the data driven web pages. Recently, Flix2You has had some concerns that the infrastructure currently in place is not robust enough to handle the future backend business demands of the site. We are open to any ideas of moving to a more robust solution, if warranted. We have already invested a substantial amount of money into the current system and we want to now fully leverage it by creating this repository to better understand our data. We want to be data rich AND information rich!
 
 Our IT data center is located in Scranton, PA.
 
