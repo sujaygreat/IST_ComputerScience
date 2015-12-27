@@ -1,0 +1,88 @@
+3. 
+a. Select * from uc_course /* 5 */
+b. Select * from uc_course_section where c_sec_id = '2' /* Tuesdays and Thursdays */
+c. select * from uc_enrollment /* 8 -- Counted the NULL values */
+d. select * from uc_faculty /* rank is ASST - which I believe is Assistant */ 
+e. select * from uc_location where room = '211' /* Max capacity = 55 */
+f. select * from uc_student where s_state = 'ME' /* 6 records are shown for students belonging to Maine */
+g. select * from uc_term where status = 'open' /* 1 */
+
+
+
+
+
+
+Results: (Will be easier to read on Notepad)
+course_id                               call_id    course_name               credits
+--------------------------------------- ---------- ------------------------- ---------------------------------------
+1                                       MIS 101    Intro. to Info. Systems   3
+2                                       MIS 301    Systems Analysis          3
+3                                       MIS 441    Database Management       3
+4                                       CS 155     Programming in C++        3
+5                                       MIS 451    Web-Based Systems         3
+
+(5 row(s) affected)
+
+c_sec_id                                course_id                               term_id                                 sec_num                                 f_id                                    c_sec_day  c_sec_time_start        c_sec_time_end          loc_id                                  max_enrl
+--------------------------------------- --------------------------------------- --------------------------------------- --------------------------------------- --------------------------------------- ---------- ----------------------- ----------------------- --------------------------------------- ---------------------------------------
+2                                       1                                       4                                       2                                       3                                       TR         1900-01-01 09:30:00.000 1900-01-01 10:45:00.000 7                                       35
+
+(1 row(s) affected)
+
+s_id                                    c_sec_id                                grade
+--------------------------------------- --------------------------------------- -----
+1                                       1                                       A
+1                                       4                                       A
+1                                       6                                       B
+1                                       9                                       B
+2                                       1                                       C
+2                                       5                                       B
+2                                       6                                       A
+2                                       9                                       B
+3                                       1                                       C
+3                                       12                                      NULL
+3                                       13                                      NULL
+4                                       11                                      NULL
+4                                       12                                      NULL
+5                                       1                                       B
+5                                       5                                       C
+5                                       9                                       C
+5                                       11                                      NULL
+5                                       13                                      NULL
+6                                       11                                      NULL
+6                                       12                                      NULL
+
+(20 row(s) affected)
+
+f_id                                    f_last                         f_first                        f_mi loc_id                                  f_phone    f_rank   f_pin
+--------------------------------------- ------------------------------ ------------------------------ ---- --------------------------------------- ---------- -------- ---------------------------------------
+1                                       Cox                            Kim                            J    9                                       7155551234 ASSO     1181
+2                                       Blanchard                      John                           R    10                                      7155559087 FULL     1075
+3                                       Williams                       Jerry                          F    12                                      7155555412 ASST     8531
+4                                       Sheng                          Laura                          M    11                                      7155556409 INST     1690
+5                                       Brown                          Philip                         E    13                                      7155556082 ASSO     9899
+
+(5 row(s) affected)
+
+loc_id                                  bldg_code  room   capacity
+--------------------------------------- ---------- ------ ---------------------------------------
+8                                       BUS        211    55
+
+(1 row(s) affected)
+
+s_id                                    s_last                         s_first                        s_mi s_address                 s_city               s_state s_zip      s_phone    s_class s_dob                   s_pin                                   f_id
+--------------------------------------- ------------------------------ ------------------------------ ---- ------------------------- -------------------- ------- ---------- ---------- ------- ----------------------- --------------------------------------- ---------------------------------------
+1                                       Miller                         Sarah                          M    144 Windridge Blvd.       Portland             ME      04102      2075559876 SR      1985-07-14 00:00:00.000 8891                                    1
+2                                       Umato                          Brian                          D    454 St. John's Place      Bath                 ME      04530      2075552345 SR      1985-08-19 00:00:00.000 1230                                    1
+3                                       Black                          Daniel                         NULL 8921 Circle Drive         Port Clyde           ME      04332      2075553907 JR      1982-10-10 00:00:00.000 1613                                    1
+4                                       Mobley                         Amanda                         J    1716 Summit St.           Augusta              ME      04332      2075556902 SO      1986-09-24 00:00:00.000 1841                                    2
+5                                       Sanchez                        Ruben                          R    1780 Samantha Court       Rockland             ME      04841      2075558899 SO      1986-11-20 00:00:00.000 4420                                    4
+6                                       Connoly                        Michael                        S    1818 Silver Street        Bar Harbour          ME      04609      2075554944 FR      1986-12-04 00:00:00.000 9188                                    3
+
+(6 row(s) affected)
+
+term_id                                 term_desc            status
+--------------------------------------- -------------------- --------------------
+6                                       Summer 2009          OPEN
+
+(1 row(s) affected)
