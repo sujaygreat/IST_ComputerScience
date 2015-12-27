@@ -104,7 +104,7 @@ Identify the resources you feel will be needed to complete the proposed project.
 
 The personnel needed to be able to complete the project, the time they will need to spend on the project, along with job titles and the associated costs.
 A description of the roles and responsibilities for each of the identified personnel.
-VI. User Analysis (1-2 pages)
+##VI. User Analysis (1-2 pages)
 
 Users
 
@@ -114,7 +114,7 @@ Database Access
 
 After identifying the users, identify the appropriate level of access that each user has to the database. Should every user be able to access the same information, or does there need to be some sort of hierarchy? Also describe the process to set and change these access privileges, and identify who is responsible for changing these privileges.
 
-VII. Organization of Data (3-4 pages including diagrams)
+##VII. Organization of Data (3-4 pages including diagrams)
 
 Existing database analysis – Identifying relationships
 
