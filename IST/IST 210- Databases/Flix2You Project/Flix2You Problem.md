@@ -206,7 +206,7 @@ Flix2You has rented millions of videos since it inceptions. We receive approxima
 
 
 
-###DEMO PICTURE
+###***DEMO PICTURE***
 
 
 
@@ -239,4 +239,4 @@ The website and database are managed by a third party vendor on an as needed bas
 
 
 
-###ERD DIAGRAM
+###***ERD DIAGRAM***
