@@ -1,4 +1,4 @@
-# IST-Computer-Science
+# IST 210- Lab 1
 
 ## Database: Upper Coastal University Registration System
 
