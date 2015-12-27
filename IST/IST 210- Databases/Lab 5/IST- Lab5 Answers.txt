@@ -1,0 +1,128 @@
+Sujay Kallamadi
+IST 210
+Lab 5
+Due: 11/1/15
+
+/* 1 */
+SELECT uc_student.s_id, uc_student.s_first, uc_student.s_last, uc_student.f_id, uc_faculty.f_last, uc_faculty.loc_id, uc_faculty.f_phone
+FROM uc_student
+INNER JOIN uc_faculty
+ON uc_student.f_id = uc_faculty.f_id;
+
+
+
+s_id                                    s_first                        s_last                         f_id                                    f_last                         loc_id                                  f_phone
+--------------------------------------- ------------------------------ ------------------------------ --------------------------------------- ------------------------------ --------------------------------------- ----------
+1                                       Sarah                          Miller                         1                                       Cox                            9                                       7155551234
+2                                       Brian                          Umato                          1                                       Cox                            9                                       7155551234
+3                                       Daniel                         Black                          1                                       Cox                            9                                       7155551234
+4                                       Amanda                         Mobley                         2                                       Blanchard                      10                                      7155559087
+5                                       Ruben                          Sanchez                        4                                       Sheng                          11                                      7155556409
+6                                       Michael                        Connoly                        3                                       Williams                       12                                      7155555412
+
+(6 row(s) affected)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 2 */
+SELECT uc_faculty.f_last, uc_faculty.f_first, uc_location.loc_id, uc_location.room
+FROM uc_faculty
+INNER JOIN uc_location
+ON uc_faculty.loc_id = uc_location.loc_id
+AND bldg_code = 'BUS';
+
+
+
+f_last                         f_first                        loc_id                                  room
+------------------------------ ------------------------------ --------------------------------------- ------
+Cox                            Kim                            9                                       424
+Blanchard                      John                           10                                      402
+Sheng                          Laura                          11                                      433
+
+(3 row(s) affected)
+
+
+
+
+
+/* 3 */
+SELECT c_sec_id, course_name, credits, max_enrl, bldg_code, room
+FROM uc_course_section
+INNER JOIN uc_location
+ON uc_location.loc_id = uc_course_section.loc_id
+INNER JOIN uc_course
+ON uc_course.course_id = uc_course_section.course_id
+AND term_id = '5';
+
+
+
+c_sec_id                                course_name               credits                                 max_enrl                                bldg_code  room
+--------------------------------------- ------------------------- --------------------------------------- --------------------------------------- ---------- ------
+5                                       Systems Analysis          3                                       35                                      BUS        404
+6                                       Database Management       3                                       30                                      BUS        105
+7                                       Database Management       3                                       30                                      BUS        105
+8                                       Programming in C++        3                                       35                                      CR         103
+9                                       Web-Based Systems         3                                       35                                      BUS        105
+10                                      Web-Based Systems         3                                       35                                      BUS        105
+
+(6 row(s) affected)
+
+
+
+
+/* 4 */
+SELECT uc_student.s_id, s_last, COUNT(*) as Enrolled
+FROM uc_student
+INNER JOIN uc_enrollment
+ON uc_enrollment.s_id = uc_student.s_id
+GROUP BY uc_student.s_id, s_last;
+
+
+
+s_id                                    s_last                         Enrolled
+--------------------------------------- ------------------------------ -----------
+1                                       Miller                         4
+2                                       Umato                          4
+3                                       Black                          3
+4                                       Mobley                         2
+5                                       Sanchez                        5
+6                                       Connoly                        2
+
+(6 row(s) affected)
+
+
+
+
+
+/* 5 */
+SELECT f_id, f_first+' ' + f_mi + '. ' + f_last AS Name, uc_location.bldg_code+ room AS Location,  f_phone
+FROM uc_faculty
+INNER JOIN uc_location
+ON uc_location.loc_id = uc_faculty.loc_id;
+
+
+
+f_id                                    Name                                                             Location         f_phone
+--------------------------------------- ---------------------------------------------------------------- ---------------- ----------
+1                                       Kim J. Cox                                                       BUS424           7155551234
+2                                       John R. Blanchard                                                BUS402           7155559087
+3                                       Jerry F. Williams                                                LIB217           7155555412
+4                                       Laura M. Sheng                                                   BUS433           7155556409
+5                                       Philip E. Brown                                                  LIB222           7155556082
+
+(5 row(s) affected)
+
