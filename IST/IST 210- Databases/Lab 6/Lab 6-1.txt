@@ -1,0 +1,208 @@
+/* I modded some of the DROP TABLE commands because I did not notice the lower-case letters stated previously. 
+On the actual ERD, it has the first letter of each name capitalized */
+
+
+
+/* Script to build tables for FLIX2YOU .. current schema before revision */
+/* Gary Heberling May 2, 2012                                            */
+/* For IST210 world campus Penn State University                         */
+
+/* This script will create 7 tables of the FLIX2YOU database 
+   along with primary and foreign keys                                   */
+
+/* Modifications to script:
+   (1) reversed order of drop table financial_transactions and account; 1/3/13 by glh
+                                                                         */
+
+
+/* Drop tables that may already exist                                    */
+/* The following code is commented out
+   and is available for your use if you
+   need to drop all the tables
+
+DROP TABLE movie_cast;
+DROP TABLE Financial_Transactions;
+DROP TABLE Accounts;
+DROP TABLE Customer_Rentals;
+DROP TABLE movies;
+DROP TABLE genre_codes;
+DROP TABLE format_types;
+DROP TABLE video_stores;
+DROP TABLE condition_codes;
+DROP TABLE actors;
+DROP TABLE Customers;
+DROP TABLE Rental_Status_Codes;
+DROP TABLE Transaction_Types;
+DROP TABLE Payment_Methods;
+
+*/
+
+
+/* create tables */
+
+
+/* genre_codes */
+
+CREATE TABLE genre_codes(
+	genre_code int IDENTITY(1,1) NOT NULL,
+	genre_code_description varchar(32) NOT NULL);
+/* format_types */
+CREATE TABLE format_types(
+	format_type_code int IDENTITY(1,1) NOT NULL,
+	format_type_description varchar(32) NOT NULL);
+/* video_stores */
+CREATE TABLE video_stores(
+	store_id int IDENTITY(1,1) NOT NULL,
+	store_name varchar(32) NOT NULL,
+	store_address varchar(128) NOT NULL,
+	store_city varchar(32) NOT NULL,
+	store_state varchar(2) NOT NULL,
+	store_zip varchar(12) NOT NULL,
+	store_email varchar(128) NOT NULL,
+	other_store_details varchar(512) NOT NULL);
+/* condition_code */
+CREATE TABLE condition_codes(
+	condition_code int IDENTITY(1,1) NOT NULL,
+	condition_code_description varchar(32) NOT NULL);
+/* actors */
+CREATE TABLE actors(
+	actor_id int IDENTITY(1,1) NOT NULL,
+	actor_gender char(1) NOT NULL,
+	actor_first_name varchar(32) NOT NULL,
+	actor_last_name varchar(32) NOT NULL,
+	other_actor_details varchar(512) NOT NULL);
+/* movies */
+CREATE TABLE movies(
+	movie_id int IDENTITY(1,1) NOT NULL,
+	condition_code int NOT NULL,
+	format_type_code int NOT NULL,
+	genre_type_code int NOT NULL,
+	store_id int NOT NULL,
+	release_year int NOT NULL,
+	movie_title varchar(128) NOT NULL,
+	movie_description varchar(1024) NOT NULL,
+	number_in_stock int NOT NULL,
+	rental_or_sale_or_both tinyint NOT NULL,
+	rental_daily_rate money NOT NULL,
+	sales_price money NOT NULL);
+/* movie_cast */
+CREATE TABLE movie_cast(
+	movie_id int NOT NULL,
+	actor_id int NOT NULL);
+
+/* Customer_Rentals */
+CREATE TABLE Customer_Rentals(
+	item_rental_id int IDENTITY(1,1) NOT NULL, 
+	customer_id int NOT NULL,
+	movie_id int NOT NULL,
+	rental_status_code int NOT NULL,
+	rental_date_out date NOT NULL,
+	rental_date_returned date NOT NULL,
+	rental_amount_due money NOT NULL,
+	other_rental_details varchar(512) NOT NULL);
+
+/* Financial_Transactions */
+CREATE TABLE Financial_Transactions(
+	transaction_id int IDENTITY(1,1) NOT NULL,
+	account_id int NOT NULL,
+	item_rental_id int NOT NULL,
+	previous_transaction_id int NOT NULL,
+	transaction_type_code int NOT NULL,
+	transaction_date date NOT NULL,
+	transaction_amount money NOT NULL,
+	transaction_comment varchar(512) NOT NULL);
+
+/* Rental_Status_codes */
+CREATE TABLE Rental_Status_Codes(
+	rental_status_code int IDENTITY(1,1) NOT NULL,
+	rental_status_description varchar(10) NOT NULL); /* varchar(10) seems reasonable if given other possible one word descriptions */
+
+/* Transaction_Types */
+CREATE TABLE Transaction_Types(
+	transaction_type_code int IDENTITY(1,1) NOT NULL,
+	transaction_type_description varchar(10) NOT NULL); /* varchar(10) seems reasonable if given other possible one word descriptions */
+
+/* Customers */
+CREATE TABLE Customers(
+	customer_id int IDENTITY(1,1) NOT NULL,
+	member_yn varchar(256) NOT NULL, /* Not sure what member_yn is so I made it varchar(256) to play it safe */
+	membership_number int NOT NULL,
+	date_became_member date NOT NULL,
+	customer_first_name varchar(20) NOT NULL,
+	customer_last_name varchar(20) NOT NULL,
+	customer_address varchar(128) NOT NULL,
+	customer_phone char(12) NOT NULL, /* XXX-XXX-XXXX */
+	customer_email varchar(30) NOT NULL, 
+	customer_dob date NOT NULL);
+
+/* Accounts */
+CREATE TABLE Accounts(
+	account_id int IDENTITY(1,1) NOT NULL,
+	customer_id int NOT NULL,
+	payment_method_code int NOT NULL,
+	account_name varchar(30) NOT NULL,
+	account_details varchar(256) NOT NULL);
+
+/* Payment_Methods */
+CREATE TABLE Payment_Methods(
+	payment_method_code int IDENTITY(1,1) NOT NULL,
+	payment_method_description varchar(5) NOT NULL); /* Check, GC(Gift Card) */
+
+
+
+/* create primary keys with ALTER TABLE statement */
+ALTER TABLE genre_codes ADD CONSTRAINT pk_genre_codes PRIMARY KEY (genre_code);
+ALTER TABLE format_types ADD CONSTRAINT pk_format_types PRIMARY KEY (format_type_code);
+ALTER TABLE video_stores ADD CONSTRAINT pk_video_stores PRIMARY KEY (store_id);
+ALTER TABLE condition_codes ADD CONSTRAINT pk_condition_codes PRIMARY KEY (condition_code);
+ALTER TABLE actors ADD CONSTRAINT pk_actors PRIMARY KEY (actor_id);
+ALTER TABLE movies ADD CONSTRAINT pk_movies PRIMARY KEY (movie_id);
+ALTER TABLE movie_cast ADD CONSTRAINT pk_movie_cast PRIMARY KEY (movie_id, actor_id);
+
+ALTER TABLE Customer_Rentals ADD CONSTRAINT pk_Customer_Rentals PRIMARY KEY(item_rental_id);
+ALTER TABLE Financial_Transactions ADD CONSTRAINT pk_Financial_Transactions PRIMARY KEY (transaction_id);
+ALTER TABLE Rental_Status_Codes ADD CONSTRAINT pk_Rental_Status_Codes PRIMARY KEY (rental_status_code);
+ALTER TABLE Transaction_Types ADD CONSTRAINT pk_Transaction_Types PRIMARY KEY (transaction_type_code);
+ALTER TABLE Customers ADD CONSTRAINT pk_Customers PRIMARY KEY (customer_id);
+ALTER TABLE Accounts ADD CONSTRAINT pk_Accounts PRIMARY KEY (account_id);
+ALTER TABLE Payment_Methods ADD CONSTRAINT pk_Payment_Methods PRIMARY KEY (payment_method_code);
+/*  end of primary key creation */
+
+/* create foreign keys */
+ALTER TABLE movie_cast ADD  CONSTRAINT fk_Movie_cast_actors FOREIGN KEY(actor_id)
+REFERENCES actors (actor_id);
+ALTER TABLE movie_cast ADD  CONSTRAINT fk_movie_cast_movies FOREIGN KEY(movie_id)
+REFERENCES movies (movie_id);
+ALTER TABLE movies ADD  CONSTRAINT fk_movies_condition_codes FOREIGN KEY(condition_code)
+REFERENCES condition_codes (condition_code);
+ALTER TABLE movies ADD  CONSTRAINT fk_movies_format_types FOREIGN KEY(format_type_code)
+REFERENCES format_types (format_type_code);
+ALTER TABLE movies ADD  CONSTRAINT fk_movies_genre_codes FOREIGN KEY(genre_type_code)
+REFERENCES genre_codes (genre_code);
+ALTER TABLE movies ADD  CONSTRAINT fk_movies_video_Stores FOREIGN KEY(store_id)
+REFERENCES video_Stores (store_id);
+
+ALTER TABLE Customer_Rentals ADD CONSTRAINT fk_Customer_Rentals_Customers FOREIGN KEY(customer_id)
+REFERENCES Customers (customer_id);
+ALTER TABLE Customer_Rentals ADD CONSTRAINT fk_Customer_Rentals_Movies FOREIGN KEY(movie_id)
+REFERENCES movies (movie_id);
+ALTER TABLE Customer_Rentals ADD CONSTRAINT fk_Customer_Rentals_Rental_Status_Codes FOREIGN KEY (rental_status_code)
+REFERENCES Rental_Status_Codes (rental_status_code);
+ALTER TABLE Financial_Transactions ADD CONSTRAINT fk_Financial_Transactions_Accounts FOREIGN KEY(account_id)
+REFERENCES Accounts (account_id);
+ALTER TABLE Financial_Transactions ADD CONSTRAINT fk_Financial_Transactions_Customer_Rentals FOREIGN KEY (item_rental_id)
+REFERENCES Customer_Rentals (item_rental_id);
+
+ALTER TABLE Financial_Transactions ADD CONSTRAINT fk_Financial_Transactions_Transaction_Types FOREIGN KEY (transaction_type_code)
+REFERENCES Transaction_Types (transaction_type_code);
+
+ALTER TABLE Accounts ADD CONSTRAINT fk_Accounts_Customers FOREIGN KEY(customer_id)
+REFERENCES Customers(customer_id);
+ALTER TABLE Accounts ADD CONSTRAINT fk_Accounts_Payment_Methods FOREIGN KEY (payment_method_code)
+REFERENCES Payment_Methods(payment_method_code);
+
+
+
+
+
+/* END OF SCRIPT */
